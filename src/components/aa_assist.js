@@ -33,7 +33,7 @@ const AudioTranscriptionDemo = () => {
     //const blobClient = containerClient.getBlockBlobClient(file.name);
 
     const blobServiceClient = new BlobServiceClient(
-      'https://saccaaassistdata01.blob.core.windows.net/raw?sp=racwdli&st=2024-08-28T16:20:31Z&se=2024-10-01T00:20:31Z&sv=2022-11-02&sr=c&sig=F4k8OBOV8B2V%2F%2B0zlROg6gB9wdaArJueA%2FLQlmLRvbo%3D'
+      'https://saccaaassistdata01.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2024-10-01T00:52:25Z&st=2024-08-28T16:52:25Z&spr=https,http&sig=%2FKkOmsaNLNxsx9eWfXvRzJZShfZywwNp%2FMVo46lDxF8%3D'  
     );
     const containerClient = blobServiceClient.getContainerClient(containerName);
     const blobClient = containerClient.getBlockBlobClient(file.name);
@@ -83,7 +83,6 @@ const AudioTranscriptionDemo = () => {
     }
   };
 
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>aa_assist</h1>
@@ -100,23 +99,22 @@ const AudioTranscriptionDemo = () => {
         </label>
         {file && <p className={styles.fileName}>Selected file: {file.name}</p>}
       </div>
-      
       {error && <p className={styles.error}>{error}</p>}
-      
-      <button 
+      <button
         onClick={handleTranscribe}
         disabled={!file || isLoading}
         className={styles.button}
       >
         {isLoading ? 'Transcribing...' : 'Transcribe Audio'}
       </button>
-      
       {isLoading && (
         <div className={styles.progressContainer}>
-          <div className={styles.progressBar} style={{width: `${uploadProgress}%`}}></div>
+          <div
+            className={styles.progressBar}
+            style={{ width: `${uploadProgress}%` }}
+          ></div>
         </div>
       )}
-      
       {transcription && (
         <div className={styles.transcriptionResult}>
           <h2>Transcription Result</h2>
