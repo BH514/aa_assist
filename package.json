@@ -1,6 +1,7 @@
 {
   "name": "aa_assist",
   "version": "0.1.0",
+  "homepage": "https://BH514.github.io/aa_assist",
   "private": true,
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.0.0",
