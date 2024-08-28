@@ -19,33 +19,39 @@ const AudioTranscriptionDemo = () => {
     }
   };
 
-  const getSasToken = async () => {
+  const getSasUrl = () => {
     // In a real application, this would be an API call to your backend
-    // The backend would generate a SAS token and return it
+    // The backend would generate a SAS URL and return it
     // For demonstration purposes, we're using a placeholder
-    return 'https://saccaaassistdata01.blob.core.windows.net/raw?sp=racwdl&st=2024-08-28T15:31:57Z&se=2024-09-30T23:31:57Z&spr=https&sv=2022-11-02&sr=c&sig=fdYU11PiLulWXSLYUrM7kUESgPo574bUp%2B%2FUBHvbg4Y%3D'; // Placeholder SAS token
+    return 'https://saccaaassistdata01.blob.core.windows.net/raw/your-blob-name?sp=racwdl&st=2024-08-28T15:31:57Z&se=2024-09-30T23:31:57Z&spr=https&sv=2022-11-02&sr=c&sig=fdYU11PiLulWXSLYUrM7kUESgPo574bUp%2B%2FUBHvbg4Y%3D'; // Placeholder SAS URL
   };
-
+  
   const uploadToAzure = async (file) => {
-    const sasToken = await getSasToken();
-    const blobServiceClient = new BlobServiceClient(sasToken);
-    const containerClient = blobServiceClient.getContainerClient('raw');
-    const blobClient = containerClient.getBlockBlobClient(file.name);
-
+    const sasUrl = getSasUrl();
+    
     try {
-      await blobClient.uploadData(file, {
-        onProgress: (progress) => {
-          setUploadProgress((progress.loadedBytes / file.size) * 100);
+      const response = await fetch(sasUrl, {
+        method: 'PUT',
+        headers: {
+          'x-ms-blob-type': 'BlockBlob',
+          'Content-Type': file.type,
         },
+        body: file,
       });
-      console.log(`File "${file.name}" uploaded successfully`);
-      return blobClient.url;
+  
+      if (response.ok) {
+        console.log(`File "${file.name}" uploaded successfully`);
+        return sasUrl;
+      } else {
+        console.error('Error uploading file:', response.statusText);
+        throw new Error('File upload failed');
+      }
     } catch (error) {
       console.error('Error uploading file:', error);
       throw error;
     }
   };
-
+  
   const handleTranscribe = async () => {
     if (!file) {
       setError('Please select an audio file first.');
