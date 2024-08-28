@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BlobServiceClient } from '@azure/storage-blob';
+import { BlobServiceClient, BlockBlobClient } from '@azure/storage-blob';
 import styles from './aa_assist.module.css';
 
 const AudioTranscriptionDemo = () => {
@@ -28,7 +28,13 @@ const AudioTranscriptionDemo = () => {
     // }
 
     const connectionString = 'DefaultEndpointsProtocol=https;AccountName=saccaaassistdata01;AccountKey=R2eKrDybGVUvGro8lFJKPpp36HhFpTCi+yTET3wFwYGfN8DQ6h4mQ6d2kWceR94ymQWPeQINSkh4+ASt6HcIpw==;EndpointSuffix=core.windows.net';
-    const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
+    //const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
+    //const containerClient = blobServiceClient.getContainerClient(containerName);
+    //const blobClient = containerClient.getBlockBlobClient(file.name);
+
+    const blobServiceClient = new BlobServiceClient(
+      'https://saccaaassistdata01.blob.core.windows.net/raw?sp=racwdli&st=2024-08-28T16:20:31Z&se=2024-10-01T00:20:31Z&sv=2022-11-02&sr=c&sig=F4k8OBOV8B2V%2F%2B0zlROg6gB9wdaArJueA%2FLQlmLRvbo%3D'
+    );
     const containerClient = blobServiceClient.getContainerClient(containerName);
     const blobClient = containerClient.getBlockBlobClient(file.name);
 
