@@ -5,9 +5,6 @@ import styles from './App.module.css';
 function App() {
   return (
     <div className={styles.app}>
-      <header className={styles.header}>
-        <h1>AgentAssist.ai</h1>
-      </header>
       <main className={styles.main}>
         <AudioTranscriptionDemo />
       </main>
