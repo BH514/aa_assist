@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      REACT_APP_AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
 
     steps:
     - uses: actions/checkout@v2
@@ -48,6 +50,8 @@ jobs:
 
     - name: Build
       run: npm run build
+      env:
+        REACT_APP_AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
 
     - name: Debug - List build directory
       run: ls -R build

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://BH514.github.io/aa_assist",
   "dependencies": {
+    "@azure/storage-blob": "^12.24.0",
     "@radix-ui/react-alert-dialog": "^1.0.0",
     "@radix-ui/react-progress": "^1.0.0",
     "lucide-react": "^0.263.1",

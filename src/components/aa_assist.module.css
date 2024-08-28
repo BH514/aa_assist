@@ -91,3 +91,19 @@
     color: #333;
     margin-bottom: 10px;
   }
+
+/* ... (previous styles remain the same) ... */
+
+  .progressContainer {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .progressBar {
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out;
+  }
