@@ -43,8 +43,8 @@ jobs:
     - name: Debug - Show src/App.js
       run: cat src/App.js
 
-    - name: Debug - Show src/components/AudioTranscriptionDemo.js
-      run: cat src/components/AudioTranscriptionDemo.js
+    - name: Debug - Show src/components/aa_assist.js
+      run: cat src/components/aa_assist.js
 
     - name: Build
       run: npm run build

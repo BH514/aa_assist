@@ -1,12 +1,12 @@
 import React from 'react';
-import AudioTranscriptionDemo from './components/aa_assist';
+import aa_assist from './components/aa_assist';
 
 function App() {
   return (
     <div className="App">
-      <AudioTranscriptionDemo />
+      <aa_assist />
     </div>
   );
 }
-
+aa_assist
 export default App;
