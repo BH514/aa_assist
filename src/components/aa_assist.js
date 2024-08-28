@@ -23,7 +23,7 @@ const AudioTranscriptionDemo = () => {
     // In a real application, this would be an API call to your backend
     // The backend would generate a SAS token and return it
     // For demonstration purposes, we're using a placeholder
-    return 'https://saccaaassistdata01.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2024-09-30T23:20:20Z&st=2024-08-28T15:20:20Z&spr=https&sig=FpJEsdDBNAGbdHQCpyAhfUZBhcrqtQloJcN8y8%2FzC2I%3D'; // Placeholder SAS token
+    return 'https://saccaaassistdata01.blob.core.windows.net/raw?sp=racwdl&st=2024-08-28T15:31:57Z&se=2024-09-30T23:31:57Z&spr=https&sv=2022-11-02&sr=c&sig=fdYU11PiLulWXSLYUrM7kUESgPo574bUp%2B%2FUBHvbg4Y%3D'; // Placeholder SAS token
   };
 
   const uploadToAzure = async (file) => {
