@@ -20,7 +20,6 @@ const AudioTranscriptionDemo = () => {
   };
 
   const uploadToAzure = async (file) => {
-    const accountName = "saccaaassistdata01";
     //const accountKey = "R2eKrDybGVUvGro8lFJKPpp36HhFpTCi+yTET3wFwYGfN8DQ6h4mQ6d2kWceR94ymQWPeQINSkh4+ASt6HcIpw=="; // Make sure this is set in your .env file
     const containerName = "raw";
 
@@ -38,13 +37,18 @@ const AudioTranscriptionDemo = () => {
         onProgress: (progress) => {
           setUploadProgress((progress.loadedBytes / file.size) * 100);
         },
+        blobHTTPHeaders: { blobContentType: file.type }
       });
+
+      if (response.errorCode) {
+        throw new Error(`Upload failed with error code: ${response.errorCode}`);
+      }
 
       console.log(`File "${file.name}" uploaded successfully`);
       return blobClient.url;
     } catch (error) {
       console.error('Error uploading file:', error);
-      throw error;
+      throw new Error(`Upload failed: ${error.message}`);
     }
   };
 
@@ -72,7 +76,6 @@ const AudioTranscriptionDemo = () => {
       setIsLoading(false);
     }
   };
-
 
 
   return (
