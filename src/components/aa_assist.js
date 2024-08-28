@@ -19,20 +19,17 @@ const AudioTranscriptionDemo = () => {
     }
   };
 
+  const getSasToken = async () => {
+    // In a real application, this would be an API call to your backend
+    // The backend would generate a SAS token and return it
+    // For demonstration purposes, we're using a placeholder
+    return 'https://saccaaassistdata01.blob.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2024-09-30T23:20:20Z&st=2024-08-28T15:20:20Z&spr=https&sig=FpJEsdDBNAGbdHQCpyAhfUZBhcrqtQloJcN8y8%2FzC2I%3D'; // Placeholder SAS token
+  };
+
   const uploadToAzure = async (file) => {
-    const accountName = "saccaaassistdata01";
-    const accountKey = process.env.REACT_APP_AZURE_STORAGE_KEY;
-    const containerName = "raw";
-
-    if (!accountKey) {
-      throw new Error('Azure Storage account key is not set');
-    }
-
-    const blobServiceClient = BlobServiceClient.fromConnectionString(
-      `DefaultEndpointsProtocol=https;AccountName=${accountName};AccountKey=${accountKey};EndpointSuffix=core.windows.net`
-    );
-    
-    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const sasToken = await getSasToken();
+    const blobServiceClient = new BlobServiceClient(sasToken);
+    const containerClient = blobServiceClient.getContainerClient('raw');
     const blobClient = containerClient.getBlockBlobClient(file.name);
 
     try {
