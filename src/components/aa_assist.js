@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const aa_assist = () => {
+const AudioTranscriptionDemo = () => {
   const [file, setFile] = useState(null);
   const [transcription, setTranscription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -66,4 +66,4 @@ const aa_assist = () => {
   );
 };
 
-export default aa_assist;
+export default AudioTranscriptionDemo;
