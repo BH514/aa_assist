@@ -22,6 +22,7 @@ jobs:
         if [ ! -f src/index.css ]; then echo "index.css is missing"; exit 1; fi
         if [ ! -f src/index.js ]; then echo "index.js is missing"; exit 1; fi
         if [ ! -f src/App.js ]; then echo "App.js is missing"; exit 1; fi
+        if [ ! -f src/components/AudioTranscriptionDemo.js ]; then echo "AudioTranscriptionDemo.js is missing"; exit 1; fi
         if [ ! -f public/index.html ]; then echo "public/index.html is missing"; exit 1; fi
 
     - name: Install Dependencies
@@ -38,6 +39,12 @@ jobs:
 
     - name: Debug - Show src/index.js
       run: cat src/index.js
+
+    - name: Debug - Show src/App.js
+      run: cat src/App.js
+
+    - name: Debug - Show src/components/AudioTranscriptionDemo.js
+      run: cat src/components/AudioTranscriptionDemo.js
 
     - name: Build
       run: npm run build
