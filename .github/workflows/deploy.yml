@@ -22,7 +22,7 @@ jobs:
         if [ ! -f src/index.css ]; then echo "index.css is missing"; exit 1; fi
         if [ ! -f src/index.js ]; then echo "index.js is missing"; exit 1; fi
         if [ ! -f src/App.js ]; then echo "App.js is missing"; exit 1; fi
-        if [ ! -f src/components/AudioTranscriptionDemo.js ]; then echo "AudioTranscriptionDemo.js is missing"; exit 1; fi
+        if [ ! -f src/components/aa_assist.js ]; then echo "aa_assist.js is missing"; exit 1; fi
         if [ ! -f public/index.html ]; then echo "public/index.html is missing"; exit 1; fi
 
     - name: Install Dependencies
