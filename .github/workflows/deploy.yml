@@ -17,6 +17,13 @@ jobs:
       with:
         node-version: '16'
 
+    - name: Check for crucial files
+      run: |
+        if [ ! -f src/index.css ]; then echo "index.css is missing"; exit 1; fi
+        if [ ! -f src/index.js ]; then echo "index.js is missing"; exit 1; fi
+        if [ ! -f src/App.js ]; then echo "App.js is missing"; exit 1; fi
+        if [ ! -f public/index.html ]; then echo "public/index.html is missing"; exit 1; fi
+
     - name: Install Dependencies
       run: npm install
 
@@ -25,6 +32,12 @@ jobs:
 
     - name: Debug - Show public/index.html
       run: cat public/index.html
+
+    - name: Debug - Show src/index.css
+      run: cat src/index.css
+
+    - name: Debug - Show src/index.js
+      run: cat src/index.js
 
     - name: Build
       run: npm run build
