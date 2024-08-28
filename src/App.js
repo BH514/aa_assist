@@ -3,7 +3,7 @@ import aa_assist from './components/aa_assist';
 
 function App() {
   return (
-    <div className="App">
+    <div className="aa_assist">
       <aa_assist />
     </div>
   );
