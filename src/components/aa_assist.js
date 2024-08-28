@@ -20,15 +20,12 @@ const AudioTranscriptionDemo = () => {
   };
 
   const getSasUrl = () => {
-    // In a real application, this would be an API call to your backend
-    // The backend would generate a SAS URL and return it
-    // For demonstration purposes, we're using a placeholder
-    return 'https://saccaaassistdata01.blob.core.windows.net/raw/your-blob-name?sp=racwdl&st=2024-08-28T15:31:57Z&se=2024-09-30T23:31:57Z&spr=https&sv=2022-11-02&sr=c&sig=fdYU11PiLulWXSLYUrM7kUESgPo574bUp%2B%2FUBHvbg4Y%3D'; // Placeholder SAS URL
+    return 'https://saccaaassistdata01.blob.core.windows.net/raw?sp=racwdl&st=2024-08-28T15:31:57Z&se=2024-09-30T23:31:57Z&spr=https&sv=2022-11-02&sr=c&sig=fdYU11PiLulWXSLYUrM7kUESgPo574bUp%2B%2FUBHvbg4Y%3D';
   };
-  
+
   const uploadToAzure = async (file) => {
     const sasUrl = getSasUrl();
-    
+  
     try {
       const response = await fetch(sasUrl, {
         method: 'PUT',
@@ -39,13 +36,14 @@ const AudioTranscriptionDemo = () => {
         body: file,
       });
   
-      if (response.ok) {
-        console.log(`File "${file.name}" uploaded successfully`);
-        return sasUrl;
-      } else {
-        console.error('Error uploading file:', response.statusText);
-        throw new Error('File upload failed');
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error response:', response.status, errorText);
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+  
+      console.log(`File "${file.name}" uploaded successfully`);
+      return sasUrl.split('?')[0]; // Return the URL without the SAS token
     } catch (error) {
       console.error('Error uploading file:', error);
       throw error;
