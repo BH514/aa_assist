@@ -1,8 +1,8 @@
 {
-    "name": "aa-assist",
+    "name": "aa_assist",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://BH514.github.io/aa-assist",
+    "homepage": "https://BH514.github.io/aa_assist",
     "dependencies": {
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
