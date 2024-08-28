@@ -1,109 +1,122 @@
+.pageContainer {
+  min-height: 100vh;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .title {
-    text-align: center;
-    color: #333;
-  }
-  
-  .uploadArea {
-    margin: 20px 0;
-    text-align: center;
-  }
-  
-  .fileInput {
-    display: none;
-  }
-  
-  .fileInputLabel {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .fileInputLabel:hover {
-    background-color: #45a049;
-  }
-  
-  .fileName {
-    margin-top: 10px;
-    font-style: italic;
-  }
-  
-  .error {
-    color: red;
-    text-align: center;
-  }
-  
-  .button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .button:hover:not(:disabled) {
-    background-color: #007B9A;
-  }
-  
-  .button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  .loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  .transcriptionResult {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-  }
-  
-  .transcriptionResult h2 {
-    color: #333;
-    margin-bottom: 10px;
-  }
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-/* ... (previous styles remain the same) ... */
+.title {
+  text-align: center;
+  color: #333;
+}
 
-  .progressContainer {
-    width: 100%;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-  
-  .progressBar {
-    height: 10px;
-    background-color: #4CAF50;
-    border-radius: 5px;
-    transition: width 0.3s ease-in-out;
-  }
+.uploadArea {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileInputLabel {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.fileInputLabel:hover {
+  background-color: #45a049;
+}
+
+.fileName {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #007B9A;
+}
+
+.button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.transcriptionResult {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(249, 249, 249, 0.9);
+  border-radius: 5px;
+}
+
+.transcriptionResult h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.progressContainer {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progressBar {
+  height: 10px;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
