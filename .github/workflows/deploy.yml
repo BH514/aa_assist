@@ -15,10 +15,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'  # Specify a recent LTS version of Node.js
 
     - name: Install Dependencies
-      run: npm ci
+      run: npm install  # Changed from npm ci to npm install
 
     - name: Build
       run: npm run build
