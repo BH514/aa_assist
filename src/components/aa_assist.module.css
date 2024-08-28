@@ -1,13 +1,16 @@
 .pageContainer {
-  min-height: 100vh;
+  min-height: 100%;
+  width: 100%;
   background-image: url('../../public/images/background.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size: auto;
+  background-position: left top;
   background-repeat: no-repeat;
+  background-color: #f0f0f0; /* Fallback color, change as needed */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .container {
