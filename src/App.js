@@ -1,5 +1,5 @@
 import React from 'react';
-import AudioTranscriptionDemo from './components/AudioTranscriptionDemo';
+import AudioTranscriptionDemo from './components/aa_assist';
 
 function App() {
   return (
