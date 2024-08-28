@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Upload, FileText } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { Amplify, API } from 'aws-amplify';
-import awsExports from './aws-exports';
-
-Amplify.configure(awsExports);
 
 const AudioTranscriptionDemo = () => {
   const [file, setFile] = useState(null);
   const [transcription, setTranscription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-
-  useEffect(() => {
-    // You can add any initialization logic here if needed
-  }, []);
 
   const handleFileDrop = (e) => {
     e.preventDefault();
@@ -49,29 +41,11 @@ const AudioTranscriptionDemo = () => {
     setIsLoading(true);
     setError('');
 
-    try {
-      // Convert file to base64
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = async () => {
-        const base64Audio = reader.result.split(',')[1];
-
-        // Call API Gateway endpoint
-        const response = await API.post('transcribeApi', '/transcribe', {
-          body: {
-            audio: base64Audio,
-            fileName: file.name
-          }
-        });
-
-        setTranscription(response.transcription);
-      };
-    } catch (error) {
-      console.error('Error:', error);
-      setError('An error occurred during transcription. Please try again.');
-    } finally {
+    // Simulating transcription process
+    setTimeout(() => {
+      setTranscription(`This is a simulated transcription of "${file.name}". In a real application, this would be the result of processing the audio file through a transcription service.`);
       setIsLoading(false);
-    }
+    }, 3000);
   };
 
   return (
