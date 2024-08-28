@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BlobServiceClient, BlockBlobClient } from '@azure/storage-blob';
+import { BlobServiceClient } from '@azure/storage-blob';
 import styles from './aa_assist.module.css';
 
 const AudioTranscriptionDemo = () => {
@@ -27,7 +27,7 @@ const AudioTranscriptionDemo = () => {
     //   throw new Error('Azure Storage account key is not set');
     // }
 
-    const connectionString = 'DefaultEndpointsProtocol=https;AccountName=saccaaassistdata01;AccountKey=R2eKrDybGVUvGro8lFJKPpp36HhFpTCi+yTET3wFwYGfN8DQ6h4mQ6d2kWceR94ymQWPeQINSkh4+ASt6HcIpw==;EndpointSuffix=core.windows.net';
+    //const connectionString = 'DefaultEndpointsProtocol=https;AccountName=saccaaassistdata01;AccountKey=R2eKrDybGVUvGro8lFJKPpp36HhFpTCi+yTET3wFwYGfN8DQ6h4mQ6d2kWceR94ymQWPeQINSkh4+ASt6HcIpw==;EndpointSuffix=core.windows.net';
     //const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
     //const containerClient = blobServiceClient.getContainerClient(containerName);
     //const blobClient = containerClient.getBlockBlobClient(file.name);
