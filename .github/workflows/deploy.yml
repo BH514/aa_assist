@@ -15,10 +15,10 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  # Specify a recent LTS version of Node.js
+        node-version: '16'
 
     - name: Install Dependencies
-      run: npm install  # Changed from npm ci to npm install
+      run: npm install
 
     - name: Build
       run: npm run build
@@ -26,5 +26,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         publish_dir: ./build
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
