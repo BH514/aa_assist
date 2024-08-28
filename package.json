@@ -4,14 +4,19 @@
     "private": true,
     "homepage": "https://BH514.github.io/aa-assist",
     "dependencies": {
-      // ... other dependencies
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-scripts": "3.4.1"
     },
     "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject",
-      "predeploy": "npm run build",
-      "deploy": "gh-pages -d build"
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    },
+    "devDependencies": {
+        "gh-pages": "^6.1.1"
     }
-  }
+}
