@@ -1,15 +1,13 @@
 .pageContainer {
-  min-height: 100%;
-  width: 100%;
+  min-height: 100vh;
   background-image: url('../../public/images/background.jpg');
   background-size: cover;
-  background-position: left top;  /* This line ensures top-left alignment */
+  background-position: center;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
+  padding: 20px;
 }
 
 .container {
